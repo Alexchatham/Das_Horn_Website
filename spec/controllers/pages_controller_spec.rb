@@ -7,7 +7,15 @@ describe PagesController do
       get 'home'
       response.should be_success
     end
+    
+    it "should have the right title" do
+      visit '/static_pages/home'
+      page.should have_selector('title',
+                        :text => "Das Horn | Drinking Chalice")
+    end
   end
+  
+  
 
   describe "GET 'about'" do
     it "returns http success" do
